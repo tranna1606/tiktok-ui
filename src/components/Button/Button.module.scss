@@ -1,0 +1,73 @@
+.wrapper {
+    min-width: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    user-select: none; // button kh nên select được text
+
+    + .wrapper {
+        margin-left: 8px;
+    } // khi 2 component đứng cạnh nhau thì cách ra
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    } // về mặt UI th còn thực tế ng khác dễ bỏ tick đi được
+}
+//Button types
+// .icon + .title {
+//     margin-left: 8px;
+// }
+.primary {
+    color: #fff;
+    background-color: var(--primary);
+
+    &:hover {
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            rgb(254, 44, 85);
+    }
+}
+.outline {
+    color: var(--primary);
+    border-color: currentColor; // ăn theo màu color ở trên
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.rounded {
+    border-radius: 999px; //cách tạo ra rounded button là cho số lớn kh nên cho 50%
+    border-color: rgba(22, 24, 35, 0.12);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px;
+
+    &:hover {
+        cursor: pointer;
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+//Button sizes
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+.large {
+    padding: 14px 16px;
+    width: 140px;
+}
