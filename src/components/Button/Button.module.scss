@@ -20,10 +20,16 @@
         pointer-events: none;
     } // về mặt UI th còn thực tế ng khác dễ bỏ tick đi được
 }
-//Button types
-// .icon + .title {
-//     margin-left: 8px;
-// }
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+.icon {
+    display: inline-block; //để set width được
+    width: 24px;
+    text-align: center;
+}
+
 .primary {
     color: #fff;
     background-color: var(--primary);

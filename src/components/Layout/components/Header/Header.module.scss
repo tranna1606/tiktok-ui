@@ -1,4 +1,6 @@
 .wrapper {
+    --border-radius: 92px;
+
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
@@ -21,7 +23,7 @@
 .search {
     height: 46px;
     padding-left: 16px;
-    border-radius: 92px;
+    border-radius: var(--border-radius);
     background: rgba(22, 24, 35, 0.06);
     display: flex;
     position: relative;
@@ -72,8 +74,8 @@
 .search-btn {
     width: 52px;
     height: 100%;
-    border-top-right-radius: 92px;
-    border-bottom-right-radius: 92px;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
     font-size: 1.8rem;
     color: rgba(22, 24, 35, 0.34);
 
@@ -86,4 +88,11 @@
         background-color: rgba(22, 24, 35, 0.06);
         //bấm liên tục vào được đổi màu
     }
+}
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 24px;
+    padding: 4px 8px;
+    background-color: transparent;
 }
