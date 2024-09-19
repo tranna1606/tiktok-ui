@@ -1,0 +1,73 @@
+.search-results,
+.search {
+    width: 407px;
+}
+.search {
+    height: 46px;
+    padding-left: 16px;
+    border-radius: var(--border-radius);
+    background: rgba(22, 24, 35, 0.06);
+    display: flex;
+    position: relative;
+    border: 1.5px solid transparent; //thêm sẵn kh lúc có focus vào mới bắt đầu thêm border nên bị co vào
+
+    input {
+        flex: 1; //để nó tràn ra
+        height: 100%;
+        font-size: 1.6rem;
+        background-color: transparent;
+        //chỉnh cái thanh nháy nháy
+        caret-color: var(--primary);
+    }
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    } //khi điền vào input thì nút tìm kiếm đậm lên, khi dùng svg thì chỉnh lại fill là currentColor mới ăn css này được
+    &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 28px;
+        background-color: rgba(22, 24, 35, 0.12);
+        top: 9px;
+        right: 52px;
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-title {
+    padding: 5px 12px;
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.clear,
+.loading {
+    position: absolute;
+    top: 50%;
+    right: 68px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+    width: 52px;
+    height: 100%;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+        //bấm liên tục vào được đổi màu
+    }
+}
