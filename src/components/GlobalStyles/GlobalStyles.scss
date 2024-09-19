@@ -33,3 +33,19 @@ input,
 a[href] {
     color: #333;
 }
+//Tooltip
+.tippy-box{
+    border-radius: 8px;
+    line-height: 2.2 rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.65);
+
+    .tippy-content{
+        padding: 8px 9px;
+    }
+    .tippy-arrow{
+        top: -8px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+}
