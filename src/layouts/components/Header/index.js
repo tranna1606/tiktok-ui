@@ -17,7 +17,8 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import routesConfig from '~/config/routes';
+
+import config from '~/config';
 import { InboxIcon, MessageIcon,  UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image'
 import Search from '../Search';
@@ -90,7 +91,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routesConfig.home} className = {cx('logo-link')}><img src={images.logo} alt="tiktok" /></Link>
+                    <Link to={config.routes.home} className = {cx('logo-link')}><img src={images.logo} alt="tiktok" /></Link>
                   
                 </div>
                 {/* Search */}

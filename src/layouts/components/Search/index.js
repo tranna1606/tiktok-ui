@@ -11,7 +11,7 @@ import styles from './Search.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import {useDebounce} from '~/hooks';
-import * as searchServices from '~/apiServices/searchServices'
+import * as searchServices from '~/services/searchService'
 
 function Search() {
     const cx = classNames.bind(styles);
