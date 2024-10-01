@@ -47,6 +47,13 @@ function Search() {
     const handleHideResult = () => {
         setShowResult(false)
     }
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if(!searchValue.startsWith(' ')){
+            setSearchValue(searchValue)
+        }
+         
+    }
     return ( 
         <HeadlessTippy
                     delay={[0,100]}
@@ -76,7 +83,7 @@ function Search() {
                             value={searchValue}
                             placeholder="Search accounts and videos"
                             spellCheck={false}
-                            onChange={(e)=> setSearchValue(e.target.value)}
+                            onChange={handleChange}
                             onFocus={() => setShowResult(true)}
                         />
                         {!!searchValue && !loading && (
@@ -93,7 +100,8 @@ function Search() {
                        
                       
 
-                        <button className={cx('search-btn')}>
+                        <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                            {/* onClick là nhấn vào nhả ra, onMouseDown là nhấn vào th */}
                             <SearchIcon />
                            
                         </button>
