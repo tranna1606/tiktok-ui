@@ -43,7 +43,7 @@ function Menu({children, items = [],hideOnClick = false, onChange = defaultFn}) 
     return ( 
 
         <Tippy
-            // visible
+            // {...passProps}
             interactive
             placement="bottom-end"
             offset={[12,8]}
@@ -54,7 +54,8 @@ function Menu({children, items = [],hideOnClick = false, onChange = defaultFn}) 
                         {history.length > 1 &&<Header title = "Languages" onBack={()=>{
                             setHistory(prev => prev.slice(0, prev.length -1))
                         }}/>}
-                        {renderItems()}
+
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
 
                 </div>
