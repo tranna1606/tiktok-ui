@@ -13,7 +13,7 @@ const defaultFn = () => {
 function Menu({children, items = [],hideOnClick = false, onChange = defaultFn}) {
     const [history, setHistory] = useState([{data: items}])
     const current = history[history.length -1]
-    
+   
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
@@ -34,11 +34,25 @@ function Menu({children, items = [],hideOnClick = false, onChange = defaultFn}) 
         });
     };
        
-       
-    const handleReset = () => {
+     
+    const handleBack = ()=>{
+        setHistory(prev => prev.slice(0, prev.length -1))
+    }
+    //Reset to first page
+    const handleResetMenu = () => {
         setHistory((prev) => prev.slice(0, 1));
     };
 
+    const renderResult = (attrs) => (
+        <div className= {cx('menu-list')} tabIndex="-1">
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 &&<Header title = {current.title} onBack={handleBack}/>}
+
+                <div className={cx('menu-body')}>{renderItems()}</div>
+            </PopperWrapper>
+
+        </div>
+    )
       
     return ( 
 
@@ -48,19 +62,8 @@ function Menu({children, items = [],hideOnClick = false, onChange = defaultFn}) 
             placement="bottom-end"
             offset={[12,8]}
             hideOnClick = {hideOnClick}
-            render = {(attrs) => (
-                <div className= {cx('menu-list')} tabIndex="-1">
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 &&<Header title = {current.title} onBack={()=>{
-                            setHistory(prev => prev.slice(0, prev.length -1))
-                        }}/>}
-
-                        <div className={cx('menu-body')}>{renderItems()}</div>
-                    </PopperWrapper>
-
-                </div>
-            )}
-            onHide={handleReset}
+            render = {renderResult}
+            onHide={handleResetMenu}
         >
             {children}
         </Tippy>

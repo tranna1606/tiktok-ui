@@ -12,6 +12,7 @@
     border: 1.5px solid transparent; //thêm sẵn kh lúc có focus vào mới bắt đầu thêm border nên bị co vào
 
     input {
+        padding-right: 40px;
         flex: 1; //để nó tràn ra
         height: 100%;
         font-size: 1.6rem;

@@ -20,9 +20,9 @@ function Search() {
     const [showResult, setShowResult] = useState(true)
     const [loading, setLoading] = useState(false)
 
-    const debounced = useDebounce(searchValue, 500)
+    const debouncedValue = useDebounce(searchValue, 500)
     useEffect(() => {
-        if(!debounced.trim()){//khoảng trắng đầu cuối
+        if(!debouncedValue.trim()){//khoảng trắng đầu cuối
             setSearchResult([])
             return;
         }
@@ -31,13 +31,13 @@ function Search() {
         const fetchAPI = async() => {
             setLoading(true)
 
-            const result = await searchServices.search(debounced);
+            const result = await searchServices.search(debouncedValue);
             setSearchResult(result)
 
             setLoading(false)
         }
         fetchAPI()
-    },[debounced])
+    },[debouncedValue])
     const inputRef = useRef();
     const handleClear = () => {
         setSearchValue('')
